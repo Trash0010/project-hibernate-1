@@ -14,7 +14,6 @@ import jakarta.persistence.Table;
 @Table(name = "player", schema = "rpg")
 public class Player {
     @Id
-    @GeneratedValue
     @Column(name = "id")
     private Long id;
 
