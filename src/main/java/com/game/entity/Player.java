@@ -2,22 +2,42 @@ package com.game.entity;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "player", schema = "rpg")
 public class Player {
+    @Id
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "name", length = 12, nullable = false)
     private String name;
 
+    @Column(name = "title", length = 30, nullable = false)
     private String title;
 
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "race", nullable = false)
     private Race race;
 
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "profession", nullable = false)
     private Profession profession;
 
+    @Column(name = "birthday", nullable = false)
     private Date birthday;
 
+    @Column(name = "banned", nullable = false)
     private Boolean banned;
 
+    @Column(name = "level", nullable = false)
     private Integer level;
 
     public Player() {
